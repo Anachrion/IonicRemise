@@ -18,19 +18,6 @@
     </div>
   </ion-item>
 
-<!--
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <button ion-fab mini (click)="addNewItem()"><ion-icon name="remove"></ion-icon></button>
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-
-    </button>
-  </ion-list>
--->
   <ion-grid>
     <ion-row >
       <ion-col col-sm-3>Article</ion-col>
@@ -43,10 +30,21 @@
         <ion-col col-sm-3>{{item.name}}</ion-col>
         <!--<ion-col col-sm-1><ion-badge >{{item.quantity}}</ion-badge></ion-col>-->
         <ion-col col-sm-3>{{item.price}} €</ion-col>
-        <ion-col col-sm-2>{{item.discount}} %</ion-col>
-        <ion-col col-sm-3>{{lineDiscount(item)}} €</ion-col>
+        <ion-col col-sm-2>
+          <ion-badge [ngStyle]="{'background-color': dicountColor(item.discount)}">
+            {{item.discount}} %
+          </ion-badge>
+        </ion-col>
+        <ion-col col-sm-3>{{item.finalprice}} €</ion-col>
       </ion-row>
       <hr>
     </div>
+      <hr>
+    <ion-row >
+      <ion-col col-sm-3>Total TTC :</ion-col>
+      <ion-col col-sm-3 class="total">{{orderTotalTTC()}} €</ion-col>
+      <ion-col col-sm-2>Total avec promotion :</ion-col>
+      <ion-col col-sm-3 class="total" >{{orderTotalPromotionIncluded()}} €</ion-col>
+    </ion-row>
 
   </ion-grid>

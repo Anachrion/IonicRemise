@@ -5,6 +5,10 @@ page-list {
       text-align: center;
       margin-left: 5%;
       margin-right: 5%;
+
+      .total {
+        border: 1px inset #eee8d5;
+      }
     }
   }
 
@@ -18,7 +22,6 @@ page-list {
   }
   ion-badge {
     border-radius: 50% !important;
-    background-color: #5b5b5b !important;
   }
 
 }
