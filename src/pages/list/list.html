@@ -3,18 +3,50 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>Remise Fidélité</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <ion-fab top right edge>
+    <button ion-fab  (click)="addItemAlert()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <ion-item>
+    <div class="item-note" (click)="editInitialAmount()">
+      Montant fidélité initial : {{initialAmount}} €
+    </div>
+  </ion-item>
+
+<!--
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <button ion-fab mini (click)="addNewItem()"><ion-icon name="remove"></ion-icon></button>
       <ion-icon name="{{item.icon}}" item-left></ion-icon>
       {{item.title}}
       <div class="item-note" item-right>
         {{item.note}}
       </div>
+
     </button>
   </ion-list>
-</ion-content>
+-->
+  <ion-grid>
+    <ion-row >
+      <ion-col col-sm-3>Article</ion-col>
+      <ion-col col-sm-3>Prix TTC</ion-col>
+      <ion-col col-sm-2>Remise Fidélité</ion-col>
+      <ion-col col-sm-3>Prix avec remise</ion-col>
+    </ion-row>
+    <div *ngFor="let item of items" (click)="editItemAlert($event, item)">
+      <ion-row >
+        <ion-col col-sm-3>{{item.name}}</ion-col>
+        <!--<ion-col col-sm-1><ion-badge >{{item.quantity}}</ion-badge></ion-col>-->
+        <ion-col col-sm-3>{{item.price}} €</ion-col>
+        <ion-col col-sm-2>{{item.discount}} %</ion-col>
+        <ion-col col-sm-3>{{lineDiscount(item)}} €</ion-col>
+      </ion-row>
+      <hr>
+    </div>
+
+  </ion-grid>
