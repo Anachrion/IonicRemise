@@ -3,7 +3,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { AboutPage } from '../pages/about/about';
 import { ListPage } from '../pages/list/list';
 
@@ -13,7 +12,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    ItemDetailsPage,
     ListPage,
     AboutPage
   ],
@@ -24,7 +22,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ItemDetailsPage,
     ListPage,
     AboutPage
   ],
