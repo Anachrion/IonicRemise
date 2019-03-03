@@ -207,12 +207,12 @@ export class ListPage {
       buttons: [
         {
           text: 'Annuler',
+          role: 'cancel',
           handler: data => {
           }
         },
         {
           text: 'Supprimer',
-          role: 'cancel',
           handler: data => {
             let index = this.items.indexOf(item);
             if (index == -1) {
